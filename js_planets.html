@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <title>Initiation au développement Web</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="tphtml.css">
+    <script src="javascript/planets.js"></script>
+</head>
+
+<body>
+    <header>
+        Initiation au développement Web
+    </header>
+
+    <div class="contenu">
+        <nav>
+            <a href="accueil.html">Accueil</a>
+            <a href="bases.html">Les bases du langage HTML</a>
+            <a href="tableau.html">Les tableaux</a>
+            <a href="styles_exercices.html">Les styles CSS : exercices</a>
+            <a href="styles_illustration.html">Les styles CSS : illustration</a>
+            <a href="js_exercices.html">Javascript : exercices</a>
+            <a href="js_ampoule.html">Javascript : l'ampoule</a>
+            <a href="js_planets.html" class="clic">Javascript : planètes</a>
+        </nav>
+
+        <article>
+
+            <h1>Javascript événements : Les planètes</h1>
+
+            <div style="margin: 20px 0;">
+                <img src="images/planets.gif" width="145" height="126" alt="Planètes" usemap="#planetmap" style="width: 145px; height: 126px; margin: 0; vertical-align: top;">
+                <img id="planete_zoom" src="" alt="Zoom planète" style="width: 100px; height: 100px; margin: 0 0 0 20px; vertical-align: top; visibility: hidden;">
+            </div>
+
+            <map name="planetmap">
+                <area shape="rect" coords="0,0,82,126" alt="Soleil" style="cursor: pointer;"
+                      onmouseover="writeText('Le Soleil et les planètes géantes gazeuses comme Jupiter sont de loin les plus grands objets de notre système solaire.', 'images/sun.gif')"
+                      onmouseout="writeDefault()">
+
+                <area shape="circle" coords="90,58,3" alt="Mercure" style="cursor: pointer;"
+                      onmouseover="writeText('La planète Mercure est très difficile à observer depuis la Terre car elle est toujours très proche du Soleil.', 'images/merglobe.gif')"
+                      onmouseout="writeDefault()">
+
+                <area shape="circle" coords="124,58,8" alt="Vénus" style="cursor: pointer;"
+                      onmouseover="writeText('Avant les années 1960, Vénus était souvent considérée comme la planète jumelle de la Terre en raison de caractéristiques très proches.', 'images/venglobe.gif')"
+                      onmouseout="writeDefault()">
+            </map> 
+
+            <p id="desc">Survoler le soleil ou les planètes pour afficher leur description.</p>
+
+        </article>
+    </div>
+
+    <footer>
+        Copyright 2026-2027 Polytech Lyon 3A Info
+    </footer>
+
+</body>
+
+</html>
