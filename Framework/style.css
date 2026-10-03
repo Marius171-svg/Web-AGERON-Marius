@@ -1,0 +1,197 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 2.5rem 1rem;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #ffffff;
+  color: #111827;
+  display: flex;
+  justify-content: center;
+}
+
+.conteneur-principal {
+  width: 100%;
+  max-width: 680px;
+  padding: 1.5rem;
+  border-radius: 8px;
+}
+
+/* Thème sombre */
+.dark {
+  background-color: #1e1e1e;
+  color: #f5f5f5;
+}
+
+.dark .conteneur-principal {
+  background-color: #1e1e1e;
+}
+
+.dark button {
+  background-color: #2d3748;
+  color: #f5f5f5;
+  border-color: #4a5568;
+}
+
+.dark button:hover {
+  background-color: #4a5568;
+}
+
+.dark .champ-saisie {
+  background-color: #2d3748;
+  color: #f5f5f5;
+  border-color: #4a5568;
+}
+
+.dark .liste-vide {
+  color: #9ca3af;
+}
+
+.dark .element-tache {
+  border-bottom-color: #374151;
+}
+
+/* Règles du mode lecture facilitée */
+.dyslexie {
+  line-height: 1.8;
+  letter-spacing: 0.05em;
+  word-spacing: 0.12em;
+}
+
+.dyslexie p,
+.dyslexie li {
+  max-width: 70ch;
+  font-size: 1.08rem;
+}
+
+/* Titres */
+h1 {
+  font-size: 2rem;
+  font-weight: 800;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+}
+
+h2 {
+  font-size: 1.35rem;
+  font-weight: 600;
+  margin-top: 1.75rem;
+  margin-bottom: 0.85rem;
+}
+
+.groupe-preferences {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.55rem 0.95rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  background-color: #e5e7eb;
+  color: #1f2937;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #d1d5db;
+}
+
+button.actif {
+  border-color: #2563eb;
+  background-color: #dbeafe;
+  color: #1d4ed8;
+}
+
+.formulaire-tache {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.champ-saisie {
+  flex: 1;
+  padding: 0.55rem 0.75rem;
+  font-size: 0.95rem;
+  border: 1px solid #9ca3af;
+  border-radius: 4px;
+  outline: none;
+}
+
+.champ-saisie:focus {
+  border-color: #2563eb;
+}
+
+.statistiques {
+  margin-bottom: 1.5rem;
+  line-height: 1.7;
+}
+
+.statistiques p {
+  margin: 0.25rem 0;
+}
+
+.liste-taches {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.element-tache {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.etiquette-tache {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  cursor: pointer;
+  flex: 1;
+}
+
+.etiquette-tache input[type="checkbox"] {
+  width: 1.15rem;
+  height: 1.15rem;
+  cursor: pointer;
+}
+
+.terminee {
+  text-decoration: line-through;
+  opacity: 0.55;
+}
+
+.bouton-supprimer {
+  background: none;
+  border: none;
+  color: #ef4444;
+  font-size: 1.25rem;
+  padding: 0.2rem 0.5rem;
+  cursor: pointer;
+}
+
+.bouton-supprimer:hover {
+  background-color: rgba(239, 68, 68, 0.1);
+  border-radius: 4px;
+}
+
+.liste-vide {
+  color: #4b5563;
+  margin-top: 0.5rem;
+}
+
+/* Cache les éléments non encore initialisés par Alpine */
+[x-cloak] {
+  display: none !important;
+}

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TP Alpine.js</title>
+
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Chargement du script applicatif et de la bibliothèque Alpine.js -->
+  <script src="appli.js" defer></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+
+<body
+  x-data="todoApp()"
+  :class="{ 'dark': darkMode, 'dyslexie': dyslexie }"
+  x-cloak
+>
+  <main class="conteneur-principal">
+    <h1>Ma liste de tâches</h1>
+
+    <!-- Boutons de gestion des préférences utilisateur -->
+    <section>
+      <h2>Préférences</h2>
+      <div class="groupe-preferences">
+        <button type="button" @click="DarkMode()" :class="{ 'actif': darkMode }">
+          <span>🌙</span> Mode sombre
+        </button>
+
+        <button type="button" @click="Dyslexie()" :class="{ 'actif': dyslexie }">
+          <span>📖</span> Lecture facilitée
+        </button>
+      </div>
+    </section>
+
+    <!-- Formulaire d'ajout avec blocage du rechargement de page -->
+    <section>
+      <h2>Ajouter une tâche</h2>
+      <form class="formulaire-tache" @submit.prevent="ajouterTache()">
+        <input
+          type="text"
+          class="champ-saisie"
+          placeholder="Nouvelle tâche..."
+          x-model="texteNouvelleTache"
+        />
+        <button type="submit">Ajouter</button>
+      </form>
+    </section>
+
+    <!-- Statistiques calculées dynamiquement -->
+    <section class="statistiques">
+      <h2>Statistiques</h2>
+      <p>Total : <strong x-text="taches.length">0</strong></p>
+      <p>Terminées : <strong x-text="totalTerminees()">0</strong></p>
+      <p>Restantes : <strong x-text="totalRestantes()">0</strong></p>
+    </section>
+
+    <!-- Affichage itératif de la liste -->
+    <section>
+      <h2>Mes tâches</h2>
+
+      <p class="liste-vide" x-show="taches.length === 0">
+        Aucune tâche pour le moment.
+      </p>
+
+      <ul class="liste-taches" x-show="taches.length > 0">
+        <template x-for="(tache, index) in taches">
+          <li class="element-tache">
+            <label class="etiquette-tache">
+              <input 
+                type="checkbox" 
+                x-model="tache.terminee" 
+                @change="sauvegarderTaches()" 
+              />
+              <span 
+                x-text="tache.texte" 
+                :class="{ 'terminee': tache.terminee }"
+              ></span>
+            </label>
+
+            <button 
+              type="button" 
+              class="bouton-supprimer" 
+              title="Supprimer la tâche" 
+              @click="supprimerTache(index)"
+            >
+              &times;
+            </button>
+          </li>
+        </template>
+      </ul>
+    </section>
+  </main>
+</body>
+</html>
