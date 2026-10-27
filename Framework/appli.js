@@ -31,7 +31,6 @@ function todoApp() {
 
     // Chargement initial des préférences et données sauvegardées
     init() {
-      // Priorité au localStorage, repli sur le cookie si absent
       const savedTheme = localStorage.getItem('theme') || getCookie('theme');
       this.darkMode = savedTheme === 'dark';
 
@@ -43,7 +42,7 @@ function todoApp() {
       this.taches = savedTaches ? JSON.parse(savedTaches) : [];
     },
 
-    // Bascule l'état et synchronise le stockage, on a localStorage + cookie
+    // Bascule l'état et synchronise le stockage on a localStorage + cookie
     DarkMode() {
       this.darkMode = !this.darkMode;
       const themeValue = this.darkMode ? 'dark' : 'light';
@@ -60,7 +59,7 @@ function todoApp() {
       setCookie('dyslexie', dyslexieValue, 30);
     },
 
-    // Valide cette saisie, génère un identifiant et persiste la nouvelle tâche
+    // Valide cette saisie génère un identifiant et persiste la nouvelle tâche
     ajouterTache() {
       const saisie = this.texteNouvelleTache.trim();
       if (!saisie) return;

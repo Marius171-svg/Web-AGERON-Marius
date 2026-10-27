@@ -7,7 +7,7 @@
 
   <link rel="stylesheet" href="style.css" />
 
-  <!-- Chargement du script applicatif et de la bibliothèque Alpine.js -->
+  <!-- Chargement du script et de la bibliothèque Alpine.js -->
   <script src="appli.js" defer></script>
   <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </head>
@@ -20,7 +20,7 @@
   <main class="conteneur-principal">
     <h1>Ma liste de tâches</h1>
 
-    <!-- Boutons de gestion des préférences utilisateur -->
+    <!-- Boutons de gestion -->
     <section>
       <h2>Préférences</h2>
       <div class="groupe-preferences">
@@ -48,7 +48,7 @@
       </form>
     </section>
 
-    <!-- Statistiques calculées dynamiquement -->
+    <!-- Statistiques calculées dynamique -->
     <section class="statistiques">
       <h2>Statistiques</h2>
       <p>Total : <strong x-text="taches.length">0</strong></p>
